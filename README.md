@@ -1,4 +1,4 @@
 Deflaaate
 =========
 
-A crap comment remover for dribbble.com
+A crap comment remover Chrome extension for dribbble.com
