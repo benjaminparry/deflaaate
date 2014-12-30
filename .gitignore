@@ -1,0 +1,23 @@
+# OSX
+.DS_Store
+.DS_Store?
+.AppleDouble
+.LSOverride
+Icon
+
+# Other OS generated files
+ehthumbs.db
+Thumbs.db
+ 
+# Thumbnails
+._*
+ 
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Sass
+.sass-cache
+
+# Node
+node_modules/**/*
