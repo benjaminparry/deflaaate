@@ -7,6 +7,9 @@
 	-webkit-transition-timing-function: ease-in-out;
 	transition-timing-function: ease-in-out;
 }
+.comment--hide {
+	display: none;
+}
 .comment--crap:hover {
 	opacity: 1;
 }

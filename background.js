@@ -1,6 +1,9 @@
 // Wait until the comments have been loaded
 setTimeout(function(){
 
+	// Enable brutal mode to completely hide the comment 
+	var brutal = false;
+
 	// Actual comments found on www.dribbble.com
 	// Keep these or roll your own
 	var crap = [
@@ -20,8 +23,10 @@ setTimeout(function(){
 	'Amazing!',
 	'Awesome.',
 	// B
+	'Brilliant. That is all.',
 	// C
 	'Cool!',
+	'Clever.',
 	// D
 	'Damn!',
 	'Damn, excellent!',
@@ -31,7 +36,9 @@ setTimeout(function(){
 	// G
 	'Good idea!',
 	'Great idea!',
+	'Great stuff.',
 	'Great stuff per usual.',
+	'genius',
 	// H
 	// I
 	// J
@@ -82,8 +89,14 @@ setTimeout(function(){
 		// Not sure if this is the best way to do this (loop within a loop, if this is even the best way to loop through them...)
 		for(x=0; x < crap.length; ++x) {
 			if( el.textContent.indexOf(crap[x]) != -1 ) {
-				el.parentNode.parentNode.classList.add("comment--crap");
-				break;
+				if (brutal == false) {
+
+					el.parentNode.parentNode.classList.add("comment--crap");
+						break;
+				} else{
+					el.parentNode.parentNode.classList.add("comment--hide");
+						break;
+				};
 			}
 		}
 	}
