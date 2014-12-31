@@ -1,57 +1,91 @@
-jQuery(document).ready(function () {
-    
-    // Wait until the comments have been loaded
-    setTimeout(function(){
+// Wait until the comments have been loaded
+setTimeout(function(){
 
-    	// Actual comments found on www.dribbble.com
-    	// Keep these or roll your own
-    	var crap = [
-    		'<3',
-    		'love it',
-    		'yes',
-    		'yessss',
-    		'good',
-    		'nice',
-    		'Nice.',
-    		'Nice!',
-    		'nice!',
-    		'nice! ',
-    		'damn',
-    		'very cool',
-    		'!!!!!!!!!!',
-    		'!!!!!!!!!',
-    		'!!!!!!!!',
-    		'!!!!!!!',
-    		'!!!!!!',
-    		'!!!!!',
-    		'!!!!',
-    		'!!!',
-    		'!!',
-    		'!',
-    		'Absolutely stunning! Amazing job!',
-    		'Good idea !',
-    		'Amazing job (;',
-    		'nice one!',
-    		'wow, wonderful!',
-    		'Very sharp and smart!',
-    		'Fantastic idea!',
-    		'wow, wonderful!',
-    		'Great stuff per usual.',
-    		'awesome',
-    		'Awesome',
-    		'Awesome!',
-    		'Awesome.',
-    		'Oh mah gawd.'
-    	];
+	// Actual comments found on www.dribbble.com
+	// Keep these or roll your own
+	var crap = [
+	// Star ratings
+	'★★★★★',
+	// Hearts
+	'<3',
+	// Emoticons
+	':)',
+	':-)',
+	';)',
+	';-)',
+	':p',
+	// A
+	'Absolutely stunning! Amazing job!',
+	'Awesome!',
+	'Amazing!',
+	'Awesome.',
+	// B
+	// C
+	'Cool!',
+	// D
+	'Damn!',
+	'Damn, excellent!',
+	// E
+	// F
+	'Fantastic idea!',
+	// G
+	'Good idea!',
+	'Great idea!',
+	'Great stuff per usual.',
+	// H
+	// I
+	// J
+	// K
+	// L
+	'Love it!',
+	'Looks great man.',
+	// M
+	'Mind blown',
+	// N
+	'Nice.',
+	'Nice!',
+	// O
+	'Oh mah gawd',
+	// P
+	// Q
+	// R
+	// S
+	// T
+	'This is perfect!',
+	// U
+	// V
+	'Very nice!',
+	'Very nice',
+	'very nice',
+	'Very cool!',
+	'Very cool',
+	'very cool',
+	'Very sharp and smart!',
+	// W
+	'wow, wonderful!',
+	// X
+	// Y
+	'yessss'
+	// Z
+	];
 
-    	// Loop though all the comments and add class to fade out the comment if crap
-    	$("#comments .comment").filter(function() {
+	// Loop though all the comments and add class to fade out the comment if crap
+	var comments = document.getElementById("comments").querySelectorAll(".comment-body p"),
+		i,
+		x,
+		el;
 
-    	     if ($.inArray($('.comment-body p', this).text(), crap) > -1) {
-	    	     $(this).addClass("comment--crap");
-    	     };
-    	     	
-    	});
 
-    }, 2000);
-});
+	for(i=0; i < comments.length; ++i) {
+		el = comments[i];
+
+		// Not sure if this is the best way to do this (loop within a loop, if this is even the best way to loop through them...)
+		for(x=0; x < crap.length; ++x) {
+			if( el.textContent.indexOf(crap[x]) != -1 ) {
+				el.parentNode.parentNode.classList.add("comment--crap");
+				break;
+			}
+		}
+	}
+
+}, 2000);
